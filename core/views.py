@@ -5,8 +5,10 @@ import random
 
 def delay(request, station):
 	response = {
-		'average_delay': random.randint(0, 300),
+		'average_delay': random.randint(0, 30),
 		'delay_probability': random.randint(0, 90)
 	}
 
-	return JsonResponse(response)
+	res = JsonResponse(response)
+	res["Access-Control-Allow-Origin"] = "*"
+	return res
